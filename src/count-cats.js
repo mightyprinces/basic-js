@@ -22,7 +22,6 @@ function countCats(matrix) {
         number += 1;
       }
     }
-
   }
 
   return number;
