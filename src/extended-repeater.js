@@ -35,25 +35,23 @@ const { NotImplementedError } = require('../lib');
 // }
 
 function repeater(str, options) {
-  // Приводим к строке
-  str = String(str);
   let addition = options.hasOwnProperty('addition') ? String(options.addition) : '';
 
-  // Дефолтные значения
+  // create default values
   const repeatTimes = options.repeatTimes || 1;
   const additionRepeatTimes = options.additionRepeatTimes || 1;
   const separator = options.separator || '+';
   const additionSeparator = options.additionSeparator || '|';
 
-  // Собираем блок для addition
+  // create addition block
   const additionBlock = Array(additionRepeatTimes)
     .fill(addition)
     .join(additionSeparator);
 
-  // Собираем основную часть
+  // create full block
   const fullBlock = str + additionBlock;
 
-  // Повторяем str+addition нужное количество раз
+  // repeat str+addition n-times
   return Array(repeatTimes)
     .fill(fullBlock)
     .join(separator);
